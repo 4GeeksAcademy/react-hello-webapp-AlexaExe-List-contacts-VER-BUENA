@@ -30,7 +30,8 @@ export const Carrusel = () => {
                         </div>
                     </div>
 
-
+                        {/* // usé "character" como nombre para representar cada personaje del array
+                        // Gracias a E. por explicarlo */}
 
                     <div className="carousel-item active" data-bs-interval="10000">
                         <img src="..." className="d-block w-100" alt="..." />
