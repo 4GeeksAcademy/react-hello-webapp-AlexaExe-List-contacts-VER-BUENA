@@ -18,6 +18,9 @@ export const Locations = ({ locations }) => {
                 <h3> Lugar: {locations.name}
                 </h3>
                 <p>Ciudad:  {locations.town ? locations.town : "desconocido"}</p>
+
+                <div className="d-flex justify-content-around">
+
                 <button type="button" class="btn btn-outline-danger" onClick={() => handleFavorite(contact.id)}
                 > 💖
 
@@ -27,6 +30,7 @@ export const Locations = ({ locations }) => {
 
                     <button className="btn btn-outline-success gap-2">Leer más</button>
                 </Link>
+                </div>
 
             </div>
 

@@ -27,6 +27,8 @@ export const ContactCard = ({ contact }) => {
                 <p>Edad: {contact.age ? contact.age : "desconocido"}</p>
                 <p>Género: {contact.gender}</p>
 
+                <div className="d-flex justify-content-around">
+
                 <Link to={`/favorites/${contact.id}`}>
                     <button type="button" class="btn btn-outline-danger" onClick={handleClick}
 
@@ -37,6 +39,7 @@ export const ContactCard = ({ contact }) => {
                 <Link to={`/characters/${contact.id}`}>
                     <button className="btn btn-outline-success gap-2">Leer más</button>
                 </Link>
+                </div>
             </div>
 
 
