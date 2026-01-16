@@ -1,9 +1,9 @@
 export const initialStore = () => {
   return {
 
-    characters: null,
-    locations: null,
-    favorites: null,
+    characters: [],
+    locations: [],
+    favorites: [],
   };
 };
 
@@ -19,19 +19,19 @@ export default function storeReducer(store, action = {}) {
     case 'get_locations':
 
       return {
-      ...store,
-      locations: action.payload
+        ...store,
+        locations: action.payload
       };
 
     case 'add_to_favorites':
 
-    return{
-      ...store,
-      favorites: [...store, action.payload]
+      return {
+        ...store,
+        favorites: [...store.favorites, action.payload]
 
-    };
+      };
 
-        default:
+    default:
       throw Error('Unknown action.');
-      }
   }
+}

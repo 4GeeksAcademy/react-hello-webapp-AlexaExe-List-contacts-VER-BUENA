@@ -5,7 +5,7 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 
 const ContactDetails = () => {
     const { id } = useParams();
-    const [character, setCharacter] = useState(null);
+    const [character, setCharacter] = useState();
     const { store } = useGlobalReducer();
 
 
