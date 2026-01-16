@@ -15,16 +15,18 @@ export const Locations = ({ locations }) => {
 
             <div className="d-block">
 
-                <h3> Lugar:
-                    <Link to={`locations/${locations.id}`}>
-                        {locations.name}
-                    </Link>
+                <h3> Lugar: {locations.name}
                 </h3>
-                <p>Ciudad:  {locations.town}</p>
-                <button type="button" class="btn btn-outline-danger" onClick={() => handleFavorite (contact.id)}
-                     > 💖
-                
+                <p>Ciudad:  {locations.town ? locations.town : "desconocido"}</p>
+                <button type="button" class="btn btn-outline-danger" onClick={() => handleFavorite(contact.id)}
+                > 💖
+
                 </button>
+
+                <Link to={`locations/${locations.id}`}>
+
+                    <button className="btn btn-outline-success gap-2">Leer más</button>
+                </Link>
 
             </div>
 

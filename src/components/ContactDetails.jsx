@@ -1,20 +1,23 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer"; 
-
+// este componente muestra la información completa de un personaje según el ID de la URL.
 
 const ContactDetails = () => {
+    // useParams me ayuda a obtener el id de la ruta...(string)
     const { id } = useParams();
     const [character, setCharacter] = useState();
     const { store } = useGlobalReducer();
 
-
+//El useEffect espera a que cargue el store.characters...
     useEffect(() => {
         if (store.characters && store.characters.length > 0) {
             const found = store.characters.find(
                 character => character.id === parseInt(id)
+                // Luego busca el personaje cuyo id coincida usé parseInt para convertir lo que trae el useParams a número
             );
             setCharacter(found);
+            // Guarda el personaje encontrado en el estado local "character".
         }
     }, [id, store.characters]);
 
@@ -23,7 +26,8 @@ const ContactDetails = () => {
             <p className="text-center mt-5">
                 Cargando personaje...
             </p>
-        );
+            // si no se encuentra muestra esto de cargando personaje
+        ); 
     }
 
     return (

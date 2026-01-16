@@ -3,11 +3,14 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 
 const Favorites = () => {
 
-    const [favorites, setFavorites ] = useState(null);
+    const [favorites, setFavorites ] = useState();
     const { store } = useGlobalReducer();
 
 
     useEffect(() => {
+
+// Lee el estado global store.favorites
+// cada vez que cambie el store.favorites actualizar tu favorites
 
         if (store.favorites && store.favorites.length > 0) {
             setFavorites(store.favorites);
@@ -16,6 +19,8 @@ const Favorites = () => {
 
     }, [store.favorites]);
 
+// si está vacío o null me muestra cargando favoritos
+// sí se hizo clic en el botón se muestran las tarjetas...
     if (!favorites || favorites.length === 0) {
         return (
             <p className="text-center mt-5">

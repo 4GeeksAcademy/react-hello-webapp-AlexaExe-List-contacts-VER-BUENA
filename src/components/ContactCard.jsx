@@ -21,10 +21,7 @@ export const ContactCard = ({ contact }) => {
 
             <div className="d-block">
 
-                <h3>Personaje:
-                    <Link to={`/characters/${contact.id}`}>
-                        {contact.name}
-                    </Link>
+                <h3>Personaje:{contact.name}
                 </h3>
 
                 <p>Edad: {contact.age ? contact.age : "desconocido"}</p>
@@ -36,6 +33,9 @@ export const ContactCard = ({ contact }) => {
                     > 💖
 
                     </button>
+                </Link>
+                <Link to={`/characters/${contact.id}`}>
+                    <button className="btn btn-outline-success gap-2">Leer más</button>
                 </Link>
             </div>
 
