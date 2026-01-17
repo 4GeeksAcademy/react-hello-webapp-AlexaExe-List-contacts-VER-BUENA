@@ -12,6 +12,11 @@ export const Navbar = () => {
 					<Link to="/demo">
 						<button className="btn btn-danger">Soy un adorno 💖</button>
 					</Link>
+					<Link to="/favorites/:id">
+						<button type="button" class="btn btn-primary">
+							Favoritos <span class="badge text-bg-secondary"></span>
+						</button>
+					</Link>
 				</div>
 			</div>
 		</nav>

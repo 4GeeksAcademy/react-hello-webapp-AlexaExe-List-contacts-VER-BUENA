@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 // este es un objeto sólo he copiado el nombre del array...
 export const Locations = ({ locations }) => {
     const { store, dispatch } = useGlobalReducer()
+    const handleClick = () => {
+        dispatch({
+        type:"add_to_favorites",
+        payload: locations
+        });    
+    }
 
     return (
         <div className="my-2 border glass d-flex flex-column align-items-center " style={{ width: "18rem" }}>
@@ -20,11 +26,12 @@ export const Locations = ({ locations }) => {
                 <p>Ciudad:  {locations.town ? locations.town : "desconocido"}</p>
 
                 <div className="d-flex justify-content-around">
-
-                <button type="button" class="btn btn-outline-danger" onClick={() => handleFavorite(contact.id)}
+                <Link to={`/favorites/${locations.id}`}>
+                <button type="button" class="btn btn-outline-danger" onClick={() => handleFavorite(locations.id)}
                 > 💖
 
                 </button>
+                </Link>
 
                 <Link to={`locations/${locations.id}`}>
 

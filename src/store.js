@@ -24,12 +24,30 @@ export default function storeReducer(store, action = {}) {
       };
 
     case 'add_to_favorites':
+  
+    const exists = store.favorites.find(
+        fav => fav.id === action.payload.id
+    );
 
-      return {
+    if (exists) {
+        // Identifica si ya está en lista, no hacemos nada
+        return store;
+    }
+
+    // esta es para que si no estaba lo agrego
+    return {
         ...store,
         favorites: [...store.favorites, action.payload]
+    };
 
-      };
+    case 'remove_from_favorites':
+
+    return {
+      ...store,
+      favorites: store.favorites.filter(
+        fav => fav.id !== action.payload
+      )
+    };
 
     default:
       throw Error('Unknown action.');
