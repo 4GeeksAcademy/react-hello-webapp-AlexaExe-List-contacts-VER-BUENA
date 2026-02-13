@@ -1,26 +1,47 @@
-export const getContacts = async (dispatch) => {
-    const response = await fetch(`https://thesimpsonsapi.com/api/characters`)
-    const data = await response.json()
-    console.log("data de la API", data);
-    dispatch({type: 'get_characters', payload: data.results}); 
-    // el console.log fue sólo para confirmar que estaba cogiendo la API
-     
-    }
+const BASE_URL = "https://playground.4geeks.com/contact"
+const AGENDA = "AlexaExe"
+
+//GET
+export const getContacts = async(dispatch) =>{
+    const response = await fetch(`${BASE_URL}/agendas/${AGENDA}/contacts`);
+    const data = await response.json();
+    console.log("Contactos obtenidos", data);
+    dispatch({type:'get_contacts', payload: data.contacts});
+
+};
+
+
+//POST - CREAR CONTACTO
+export const createContact = async (dispatch, contact) => {
+    await fetch(`${BASE_URL}/agendas/${AGENDA}/contacts`, {
+        method: "POST",
+        body: JSON.stringify(contact),
+        headers: {"Content-Type": "application/json"} 
+         
+    });
+
+    getContacts(dispatch);
+};
     
 
-export const getLocations = async (dispatch) => {
-const response = await fetch(`https://thesimpsonsapi.com/api/locations`)
-const data = await response.json()
-console.log(data);
-dispatch ({type: 'get_locations', payload: data.results})
-   // el console.log fue sólo para confirmar que estaba cogiendo la API  
-}
+//PUT
+export const updateContact = async (dispatch, contactId, contact) => {
+    await fetch(`${BASE_URL}/agendas/${AGENDA}/contacts/${contactId}`,{
+        method:"PUT",
+        body: JSON.stringify(contact),
+        headers: {"Content-Type": "application/json"}
 
+    });
+    getContacts(dispatch);
 
-// export const getFavorites = async (dispatch) => {
-// const response = await fetch(`https://thesimpsonsapi.com/api/characters`)
-// const data = await response.json()
-// console.log(data);
-// dispatch ({type: 'add_to_favorites', payload: data.results})
-//    // el console.log fue sólo para confirmar que estaba cogiendo la API  
-// }
+};
+
+//DELETE
+
+export const deleteContact = async (dispatch, contactId) => {
+await fetch(`${BASE_URL}/agendas/${AGENDA}/contacts/${contactId}`,{
+    method:"DELETE"
+    });
+    getContacts(dispatch);
+
+};
