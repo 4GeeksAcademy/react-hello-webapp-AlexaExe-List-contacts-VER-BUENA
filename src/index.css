@@ -1,28 +1,100 @@
-.scroll-container{
-    display: flex;
-    flex-direction: row;
+.scroll-container {
+  display: flex;
+  flex-direction: row;
   gap: 1rem;
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 1rem;
 }
-/* esto es la barra horizontal */
 
 body {
-  background-image: url("https://wallpapers.com/images/high/zoom-background-p13tpgvfxfamd9cw.webp");
-   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: black;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0f0f23 100%);
+  min-height: 100vh;
+  color: #fff;
 }
 
-.Glass{
+.card {
+  background: rgba(20, 10, 40, 0.8);
+  border: 1px solid #ff00ff55;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+  color: #fff;
+  position: relative;
 
-background: rgba(255, 255, 255, 0.31);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  border-color: #00ffff;
+}
+
+.card-title {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.card-text, .card p {
+  color: #ccc;
+}
+
+.btn-success {
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  border: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.btn-success:hover {
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  color: #000;
+}
+
+.btn-outline-primary {
+  border-color: #00ffff;
+  color: #00ffff;
+}
+
+.btn-outline-primary:hover {
+  background: #00ffff;
+  color: #000;
+}
+
+.btn-outline-danger {
+  border-color: #ff0066;
+  color: #ff0066;
+}
+
+.btn-outline-danger:hover {
+  background: #ff0066;
+  color: #fff;
+}
+
+.form-control, .form-select {
+  background: rgba(20, 10, 40, 0.9);
+  border: 1px solid #ff00ff55;
+  color: #fff;
+}
+
+.form-control:focus, .form-select:focus {
+  background: rgba(30, 15, 50, 0.9);
+  border-color: #00ffff;
+  box-shadow: 0 0 10px #00ffff55;
+  color: #fff;
+}
+
+.form-label {
+  color: #00ffff;
+}
+
+h1 {
+  color: #ff00ff;
+  text-shadow: 0 0 20px #ff00ff;
+}
+
+.rounded-circle {
+  border: 3px solid #ff00ff;
+  box-shadow: 0 0 20px #ff00ff88;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }

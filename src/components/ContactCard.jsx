@@ -1,56 +1,52 @@
 import useGlobalReducer from "../hooks/useGlobalReducer"
 import { Link } from "react-router-dom";
-import Favorites from "../pages/Favorites";
-
+import { deleteContact } from "./Services/APIServices";
 
 // este es un objeto sólo he copiado el nombre del array...
 export const ContactCard = ({ contact }) => {
-    const { store, dispatch } = useGlobalReducer()
-    const handleClick = () => {
-       
-        dispatch({
-            type: "add_to_favorites",
-            payload: {
-                ...contact , 
-                type:"character" } //me traigo el contact inicial y filtro por tipo
-        });
+    const { dispatch } = useGlobalReducer()
+
+    const handleDelete = () => {
+        deleteContact(dispatch, contact.id);
     };
 
 
     return (
-        <div className="my-2 border glass d-flex flex-column align-items-center " style={{ width: "18rem" }}>
-            <div>
-                <img src={`https://cdn.thesimpsonsapi.com/200${contact.portrait_path}`} alt={contact.name} />
-            </div>
-
-            <div className="d-block">
-
-                <h3>Personaje:{contact.name}
-                </h3>
-
-                <p>Edad: {contact.age ? contact.age : "desconocido"}</p>
-                <p>Género: {contact.gender}</p>
-
-                <div className="d-flex justify-content-around">
-
-                <Link to={`/favorites/${contact.id}`}>
-                    <button type="button" class="btn btn-outline-danger" onClick={handleClick}
-
-                    > 💖
-
-                    </button>
-                </Link>
-
-                <Link to={`/characters/${contact.id}`}>
-                    <button className="btn btn-outline-success gap-2">Leer más</button>
-                </Link>
+        <div className="card mb-3 position-relative">
+            <div className="position-absolute top-0 end-0 m-2">
+                    <Link to={`/edit/${contact.id}`}>
+                        <button type="button" className="btn btn-outline-primary me-2"> ✏️
+                        </button>
+                    </Link>
+                       <button className="btn btn-sm btn-outline-danger" onClick={handleDelete} >🗑️</button>
                 </div>
-            </div>
+            <div className="row g-0">
+                <div className="col-md-4 d-flex align-items-center justify-content-center p-3">
+                    <img
 
+                    //voy a crear un ternario para que se pueda elegir la foto 
+                        src={"https://i.imgur.com/BSaVC3g.png"}
+                        alt={contact.name}
+                        className="rounded-circle"
+                        style={{ width: "100px", heigh: "100px", objectFit: "cover" }}
+                    />
+                </div>
+
+                <div className="col-md-8">
+                    <div className="card-body">
+
+                        <h5 className="card-title"> Nombre: {contact.name}</h5>
+                        <p>📍 dirección: {contact.address || "Sin dirección"}</p>
+                        <p>📞 móvil: {contact.phone || "Sin teléfono"}</p>
+                        <p>✉️ email: {contact.email || "Sin email"}</p>
+                    </div>
+                </div>
+                
+
+            </div>
 
         </div>
 
     );
-
 
 };

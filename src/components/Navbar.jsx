@@ -6,17 +6,13 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light">
 			<div className="container">
 				<Link to="/">
-					<span className="navbar-brand mb-0 h1">Panel Principal</span>
+					{/* <span className="btn-success">Panel Principal</span> */}
 				</Link>
 				<div className="ml-auto">
 					<Link to="/demo">
-						<button className="btn btn-danger">Soy un adorno 💖</button>
+						<button className="btn-success">Soy un adorno 💖</button>
 					</Link>
-					<Link to="/favorites/:id">
-						<button type="button" class="btn btn-primary">
-							Favoritos <span class="badge text-bg-secondary"></span>
-						</button>
-					</Link>
+					
 				</div>
 			</div>
 		</nav>
