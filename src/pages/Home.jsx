@@ -5,6 +5,9 @@ import { getContacts } from "../components/Services/APIServices.js";
 import { ContactCard } from "../components/ContactCard.jsx";
 import { Link } from "react-router-dom";
 
+//He reciclado un proyecto antiguo para armar esta web
+//pero igual funciona perfecto.
+
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()

@@ -3,7 +3,7 @@ import { useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { createContact, updateContact } from "../components/Services/APIServices";
 
-// este componente muestra la información completa de un personaje según el ID de la URL.
+// este componente es para añadir y editar un contacto en la web.
 
 export const AddContact = () => {
     const { id } = useParams();
